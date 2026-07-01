@@ -1,0 +1,79 @@
+:root {
+  --bg: #0f1220;
+  --panel: #171a2b;
+  --text: #e7e9f3;
+  --muted: #9aa0b5;
+  --accent: #4f8cff;
+  --line: #262a40;
+  --live: #17c964;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+.site-header {
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+  padding: 16px 0;
+}
+.site-header .wrap { display: flex; align-items: baseline; gap: 12px; }
+.site-title { color: var(--text); text-decoration: none; font-weight: 700; font-size: 20px; }
+.tagline { color: var(--muted); font-size: 14px; }
+
+main.wrap { padding-top: 24px; padding-bottom: 48px; }
+
+a { color: var(--accent); }
+h1 { margin-top: 0.2em; }
+h2 .count, h2 .num { color: var(--muted); font-weight: 400; font-size: 0.7em; }
+
+.back { margin-bottom: 8px; }
+
+.facts { list-style: none; padding: 0; margin: 0 0 24px; }
+.facts li { padding: 4px 0; border-bottom: 1px solid var(--line); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 24px;
+  font-size: 15px;
+}
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+th { color: var(--muted); font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: 0.04em; }
+tbody tr:hover { background: rgba(255,255,255,0.03); }
+
+td.num, th.num, td.score, th.score { text-align: center; }
+td.away { }
+td.date, td.stage { color: var(--muted); white-space: nowrap; }
+td.score { white-space: nowrap; }
+.pens { color: var(--muted); font-size: 12px; }
+.tbd { color: var(--muted); }
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge-live { background: rgba(23,201,100,0.15); color: var(--live); }
+
+.meta { color: var(--muted); font-size: 13px; }
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  padding: 20px 0 40px;
+}
+
+@media (max-width: 640px) {
+  td.stage, th:nth-child(2) { display: none; }
+}

@@ -1,0 +1,42 @@
+# --- Jekyll / GitHub Pages ---
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# --- Ruby / Bundler ---
+vendor/
+.bundle/
+Gemfile.lock
+*.gem
+/.ruby-version
+
+# --- Data fetch pipeline (Python) ---
+scripts/.cache/
+*.py[cod]
+__pycache__/
+.venv/
+venv/
+
+# --- OS files ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+
+# --- Editors / IDEs ---
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.\#*
+\#*\#
+
+# --- Logs / temp ---
+*.log
+*.tmp
+

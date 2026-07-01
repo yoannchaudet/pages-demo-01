@@ -1,0 +1,53 @@
+---
+layout: default
+---
+{%- assign tournament = nil -%}
+{%- for t in site.data.worldcups.tournaments -%}
+  {%- if t.year == page.year -%}{%- assign tournament = t -%}{%- endif -%}
+{%- endfor -%}
+{%- if tournament == nil -%}
+<p>No data found for {{ page.year }}.</p>
+{%- else -%}
+<p class="back"><a href="{{ '/' | relative_url }}">← All tournaments</a></p>
+
+<h1>{{ tournament.year }} FIFA World Cup</h1>
+
+<ul class="facts">
+  <li><strong>Host:</strong> {{ tournament.host | default: "—" }}</li>
+  {%- if tournament.start_date %}<li><strong>Dates:</strong> {{ tournament.start_date }}{% if tournament.end_date %} → {{ tournament.end_date }}{% endif %}</li>{%- endif -%}
+  {%- if tournament.status == "in_progress" -%}
+  <li><span class="badge badge-live">In progress</span> — partial results</li>
+  {%- else -%}
+  <li><strong>Winner:</strong> 🏆 {{ tournament.winner | default: "—" }}</li>
+  <li><strong>Runner-up:</strong> {{ tournament.runner_up | default: "—" }}</li>
+  {%- endif -%}
+  <li><a href="{{ tournament.wikipedia_url }}">Wikipedia ↗</a></li>
+</ul>
+
+<h2>Matches <span class="count">({{ tournament.matches | size }})</span></h2>
+
+<table class="matches">
+  <thead>
+    <tr><th>Date</th><th>Stage</th><th class="home">Home</th><th class="score">Score</th><th class="away">Away</th><th></th></tr>
+  </thead>
+  <tbody>
+  {%- for m in tournament.matches -%}
+    <tr>
+      <td class="date">{{ m.date | default: "—" }}</td>
+      <td class="stage">{{ m.stage }}</td>
+      <td class="home">{{ m.home }}</td>
+      <td class="score">
+        {%- if m.status == "completed" -%}
+          <strong>{{ m.home_score }}–{{ m.away_score }}</strong>
+          {%- if m.penalties %}<br><span class="pens">({{ m.penalties }} pen.)</span>{% endif -%}
+        {%- else -%}
+          <span class="tbd">—</span>
+        {%- endif -%}
+      </td>
+      <td class="away">{{ m.away }}</td>
+      <td class="link">{% if m.wikipedia_url %}<a href="{{ m.wikipedia_url }}">↗</a>{% endif %}</td>
+    </tr>
+  {%- endfor -%}
+  </tbody>
+</table>
+{%- endif -%}
