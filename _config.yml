@@ -2,11 +2,12 @@ title: World Cup Results
 description: A small GitHub Pages demo showing FIFA World Cup results over the years (1930–2026).
 markdown: kramdown
 
+# Remote dataset fetched client-side in the browser.
+data_url: https://yoannchaudet.github.io/pages-demo-00/data/worldcups.json
+
 # Local dev/build settings
 exclude:
-  - scripts/
   - README.md
   - Gemfile
   - Gemfile.lock
   - vendor/
-  - data/

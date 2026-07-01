@@ -11,13 +11,6 @@ Gemfile.lock
 *.gem
 /.ruby-version
 
-# --- Data fetch pipeline (Python) ---
-scripts/.cache/
-*.py[cod]
-__pycache__/
-.venv/
-venv/
-
 # --- OS files ---
 .DS_Store
 .DS_Store?

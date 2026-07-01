@@ -22,5 +22,12 @@
       <p>Data sourced from Wikipedia / Wikidata. This is a demo site.</p>
     </div>
   </footer>
+  <script>
+    window.SITE = {
+      dataUrl: {{ site.data_url | jsonify }},
+      baseurl: {{ site.baseurl | default: "" | jsonify }}
+    };
+  </script>
+  <script src="{{ '/assets/worldcups.js' | relative_url }}"></script>
 </body>
 </html>
