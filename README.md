@@ -46,6 +46,3 @@ results while running locally.
   contain minor gaps for the earliest tournaments (e.g. walkovers).
 - The site uses no Jekyll plugins beyond the default GitHub Pages set, so it
   builds as‑is on GitHub Pages.
-
-test
-aa
